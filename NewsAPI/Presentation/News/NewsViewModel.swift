@@ -41,6 +41,7 @@ final class NewsViewModel {
     }
     
     func fetchTopHeadlines() {
+        articles.removeAll()
         fetchTopHeadlinesUseCase.perform(with: selectedFilters!.0, category: selectedFilters!.1)
             .sink { completion in
                 if case .failure(let error) = completion {
@@ -56,7 +57,6 @@ final class NewsViewModel {
     }
     
     private func fetchFilters() {
-        articles.removeAll()
         fetchCountriesUseCase.perform()
             .combineLatest(fetchCategoriesUseCase.perform())
             .sink { completion in

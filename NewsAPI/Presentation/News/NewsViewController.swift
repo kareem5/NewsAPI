@@ -56,8 +56,8 @@ class NewsViewController: UITableViewController, Alertable {
         tableView.register(NewsTableViewCell.nib, forCellReuseIdentifier: NewsTableViewCell.reuseIdentifier)
         tableView.rowHeight = 100
         tableView.dataSource = dataSource
-//        tableView.refreshControl = UIRefreshControl()
-//        tableView.refreshControl?.addTarget(self, action: #selector(fetchWeatherList), for: .valueChanged)
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.addTarget(self, action: #selector(refreshNewsList), for: .valueChanged)
     }
     
     private func bindUI() {
@@ -65,24 +65,11 @@ class NewsViewController: UITableViewController, Alertable {
             .receive(on: DispatchQueue.global(qos: .background))
             .sink { [unowned self] articles in
                 self.updateData(with: articles)
-//                self.endRefreshing()
+                self.endRefreshing()
             }.store(in: &subscriptions)
         
         
-        
-//        viewModel.$weatherList
-//            .receive(on: DispatchQueue.global(qos: .background))
-//            .sink { [unowned self] completion in
-//                if case .failure(let error) = completion {
-//                    print("error: \(error)")
-//                    self.endRefreshing()
-//                }
-//            } receiveValue: { [unowned self] cities in
-//                self.updateData(with: cities)
-//                self.endRefreshing()
-//            }.store(in: &subscriptions)
-
-        viewModel.$state
+            viewModel.$state
             .receive(on: DispatchQueue.main)
             .sink { [unowned self] state in
                 self.render(state)
@@ -99,6 +86,12 @@ class NewsViewController: UITableViewController, Alertable {
             showAlert(message: message)
         case .success:
             loadingView.hide()
+        }
+    }
+    
+    private func endRefreshing() {
+        DispatchQueue.main.async {
+            self.tableView.refreshControl?.endRefreshing()
         }
     }
     
@@ -129,6 +122,10 @@ class NewsViewController: UITableViewController, Alertable {
             self.coordinator.newsDetails(with: article)
             tableView.isUserInteractionEnabled = true
         }
+    }
+    
+    @objc private func refreshNewsList() {
+        viewModel.fetchTopHeadlines()
     }
     
     // MARK: - Actions
