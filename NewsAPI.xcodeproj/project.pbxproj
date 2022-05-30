@@ -28,6 +28,7 @@
 		625D8FB52844B4CF00528CC8 /* FilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 625D8FB32844B4CF00528CC8 /* FilterViewController.xib */; };
 		625D8FB72844B75B00528CC8 /* FetchCategoriesUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 625D8FB62844B75B00528CC8 /* FetchCategoriesUseCase.swift */; };
 		62628C26283A4BD50080FD79 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62628C25283A4BD50080FD79 /* Category.swift */; };
+		629226B42844E235000815B6 /* NewsAPIServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 629226B32844E235000815B6 /* NewsAPIServiceMock.swift */; };
 		62A1684F28383DA900219630 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1684E28383DA900219630 /* AppDelegate.swift */; };
 		62A1685128383DAA00219630 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A1685028383DAA00219630 /* SceneDelegate.swift */; };
 		62A1685828383DAB00219630 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 62A1685728383DAB00219630 /* Assets.xcassets */; };
@@ -88,6 +89,7 @@
 		625D8FB32844B4CF00528CC8 /* FilterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FilterViewController.xib; sourceTree = "<group>"; };
 		625D8FB62844B75B00528CC8 /* FetchCategoriesUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchCategoriesUseCase.swift; sourceTree = "<group>"; };
 		62628C25283A4BD50080FD79 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		629226B32844E235000815B6 /* NewsAPIServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsAPIServiceMock.swift; sourceTree = "<group>"; };
 		62A1684B28383DA900219630 /* NewsAPI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsAPI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		62A1684E28383DA900219630 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		62A1685028383DAA00219630 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 			isa = PBXGroup;
 			children = (
 				62A1686528383DAB00219630 /* NewsAPITests.swift */,
+				629226B32844E235000815B6 /* NewsAPIServiceMock.swift */,
 			);
 			path = NewsAPITests;
 			sourceTree = "<group>";
@@ -545,6 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				62A1686628383DAB00219630 /* NewsAPITests.swift in Sources */,
+				629226B42844E235000815B6 /* NewsAPIServiceMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
